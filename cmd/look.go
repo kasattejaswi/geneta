@@ -78,6 +78,7 @@ func listAllFiles(path string, isRecursive bool) []string {
 	return fileList
 }
 
+
 //Read file of a given path
 func readFile(path string) {
 	file, err := os.ReadFile(path)
