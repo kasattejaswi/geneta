@@ -27,6 +27,8 @@ Pass path using -p or --path`,
 		//  else a single path is passed
 		if isDir(filePath) {
 			fmt.Println(listAllFiles(filePath, isRecursive))
+		} else {
+			readFile(filePath)
 		}
 
 	},
@@ -78,5 +80,9 @@ func listAllFiles(path string, isRecursive bool) []string {
 
 //Read file of a given path
 func readFile(path string) {
-
+	file, err := os.ReadFile(path)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(string(file))
 }
